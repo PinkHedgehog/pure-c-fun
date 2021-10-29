@@ -1,2 +1,2 @@
 # pure-c-fun
-Some experiments with C, algorithms, data structures and pointers
+Some experiments with C, algorithms, data structures, and POINTERS!
