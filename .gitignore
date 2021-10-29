@@ -1,6 +1,3 @@
 *.o
 *.out
-<<<<<<< HEAD
 *.gch
-=======
->>>>>>> 24dfeb9 (Declarations moved to header)
