@@ -9,10 +9,10 @@
  */
 
 
-/*******************************************************************/
+/****************************************************/
 List cons(int x, List list)
 {
-    List node = (List) malloc(sizeof(struct Node));
+    List node = (List) malloc(sizeof(Node));
 
     if (NULL == node)
     {
@@ -26,9 +26,9 @@ List cons(int x, List list)
 
     return list;
 }
-/*******************************************************************/
+/****************************************************/
 
-/**************************************************************************/
+/************************************************************/
 List copy(List list)
 {
     if (NULL == list)
@@ -46,7 +46,7 @@ List copy(List list)
     {
         if (isFirst)
         {
-            i1 = (List) malloc(sizeof(struct Node));
+            i1 = (List) malloc(sizeof(Node));
             if (NULL == i1)
             {
                 perror("\n*** MEMORY ALLOCATION ERROR ***\n");
@@ -59,7 +59,7 @@ List copy(List list)
         }
         else
         {
-            List tmp = (List) malloc(sizeof(struct Node));
+            List tmp = (List) malloc(sizeof(Node));
             if (NULL == tmp)
             {
                 perror("\n*** MEMORY ALLOCATION ERROR ***\n");
@@ -74,9 +74,9 @@ List copy(List list)
 
     return node;
 }
-/**************************************************************************/
+/************************************************************/
 
-/*******************************************************************/
+/****************************************************/
 List head(List list)
 {
     if (NULL == list)
@@ -84,7 +84,7 @@ List head(List list)
         perror("\n*** EMPTY LIST ***\n");
         return NULL;
     }
-    List node = (List) malloc(sizeof(struct Node));
+    List node = (List) malloc(sizeof(Node));
     if (NULL == node)
     {
         perror("\n*** MEMORY ALLOCATION ERROR ***\n");
@@ -94,7 +94,7 @@ List head(List list)
     node -> next = NULL;
     return node;
 }
-/*******************************************************************/
+/****************************************************/
 
 /***************************************/
 List headI(List list)
@@ -108,7 +108,7 @@ List headI(List list)
 }
 /***************************************/
 
-/*******************************************/
+/***************************************/
 List deleteFirst(List list)
 {
     if (NULL == list)
@@ -122,7 +122,7 @@ List deleteFirst(List list)
     free(tmp);
     return list;
 }
-/*******************************************/
+/***************************************/
 
 /***************************************/
 List tail(List list)
@@ -151,7 +151,7 @@ List tailI(List list)
 
 
 
-/*********************************/
+/**************************/
 void deleteList(List list)
 {
     for (; list;)
@@ -161,9 +161,9 @@ void deleteList(List list)
         free(tmp);
     }
 }
-/*********************************/
+/**************************/
 
-/***************************************/
+/*************************************/
 List reverse(List list)
 {
     List rev = NULL;
@@ -173,9 +173,9 @@ List reverse(List list)
     }
     return rev;
 }
-/***************************************/
+/*************************************/
 
-/****************************************/
+/******************************/
 List reverseI(List list)
 {
     List rev = NULL;
@@ -188,9 +188,9 @@ List reverseI(List list)
     }
     return rev;
 }
-/****************************************/
+/******************************/
 
-/*************************************************************/
+/**********************************/
 List reverseIP(List list, List prev)
 {
     List rev = NULL;
@@ -207,9 +207,9 @@ List reverseIP(List list, List prev)
     }
     return rev;
 }
-/*************************************************************/
+/**********************************/
 
-/**************************************************/
+/*****************************************/
 void printList(List list, const char * msg)
 {
     printf("\n=== %s ===\n", msg);
@@ -224,7 +224,7 @@ void printList(List list, const char * msg)
         printf("=");
     printf("\n");
 }
-/**************************************************/
+/*****************************************/
 
 /*******************************************************/
 List indexListI(int idx, List list)
@@ -242,7 +242,7 @@ List indexListI(int idx, List list)
 }
 /*******************************************************/
 
-/******************************************************************/
+/*******************************************************/
 List indexList(int idx, List list)
 {
     List iter = list;
@@ -259,7 +259,7 @@ List indexList(int idx, List list)
             return NULL;
         }
     }
-    List tmp = (List) malloc(sizeof(struct Node));
+    List tmp = (List) malloc(sizeof(Node));
     if (NULL == tmp)
     {
         perror("\n*** MEMORY ALLOCATION ERROR ***\n");
@@ -269,7 +269,7 @@ List indexList(int idx, List list)
     tmp -> next = NULL;
     return tmp;
 }
-/******************************************************************/
+/*******************************************************/
 
 /***********************************************/
 int length(List list)
@@ -280,7 +280,7 @@ int length(List list)
 }
 /***********************************************/
 
-/******************************************************************/
+/*******************************************/
 List merge(List list1, List list2)
 {
     if (NULL == list1)
@@ -333,9 +333,9 @@ List merge(List list1, List list2)
     }
     return merged;
 }
-/******************************************************************/
+/*******************************************/
 
-/**************************************************************/
+/*********************************************/
 List mapIntI(List list, int (*mapFunc)(int x))
 {
     List tmp = list;
@@ -345,7 +345,7 @@ List mapIntI(List list, int (*mapFunc)(int x))
     }
     return tmp;
 }
-/**************************************************************/
+/*********************************************/
 
 /*************************************************************/
 List mapInt(List list, int (*mapFunc)(int x))
@@ -397,7 +397,7 @@ List take(int n, List list)
     tmp = reverseI(tmp);
     return tmp;
 }
-/***************************************************************/
+/****************************************************/
 
 /**********************************************/
 List sortI(List list)
@@ -417,3 +417,10 @@ List sortI(List list)
     return merge(sortI(left), sortI(right));
 }
 /**********************************************/
+
+/*******************************************/
+List sort(List list)
+{
+    return sortI(copy(list));
+}
+/******************************************/

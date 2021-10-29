@@ -9,6 +9,7 @@ struct Node
 };
 
 typedef struct Node * List;
+typedef struct Node Node;
 
 List cons(int x, List list);
 List copy(List list);
