@@ -32,7 +32,7 @@ List mapInt(List list, int (*mapFunc)(int x));
 List takeI(int n, List list);
 List take(int n, List list);
 List sortI(List list);
-
+List mergelists(List * arr, int arrlen);
 
 
 #endif
