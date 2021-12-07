@@ -230,14 +230,13 @@ void clearTree(struct Node * tree)
 int main()
 {
     struct Node * tree = NULL;
-    tree = insert(tree, 1);
-    tree = insert(tree, 7);
-    tree = insert(tree, 2);
-    tree = insert(tree, 6);
-    tree = insert(tree, 3);
-    tree = insert(tree, 5);
-    tree = insert(tree, 4);
 
+    int n;
+    scanf("%d", &n);
+    for (; n > 0; scanf("%d", &n))
+    {
+        tree = insert(tree, n);
+    }
     printf("\n=== PREORDER WALK ===\n");
     preOrder(tree);
     printf("\n=====================\n");
