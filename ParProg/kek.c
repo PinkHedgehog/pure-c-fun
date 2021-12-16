@@ -19,8 +19,8 @@ int main()
     int y = 0x000000ab;
     y *= 0x101;
     printf("%08x\n", y);
-    s = (unsigned char *) "0123456789ABCDEF\\x";
-    for (int i = 0; i < 18; i++)
+    s = (unsigned char *) "0123456789ABCDEFabcdef\\x";
+    for (int i = 0; i < 24; i++)
     {
         printf("%02x %hhu %c\n", s[i], s[i], s[i]);
     }
